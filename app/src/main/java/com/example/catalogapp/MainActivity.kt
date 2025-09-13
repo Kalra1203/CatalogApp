@@ -4,16 +4,10 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.appcompat.widget.Toolbar
-import androidx.activity.viewModels
-import androidx.lifecycle.SavedStateViewModelFactory
 import com.example.catalogapp.model.ListFragment
-import com.example.catalogapp.viewmodel.CatalogViewModel
+import com.example.catalogapp.data.CatalogRepository
 
 class MainActivity : AppCompatActivity() {
-
-    private val viewModel: CatalogViewModel by viewModels {
-        SavedStateViewModelFactory(application, this)
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,7 +17,7 @@ class MainActivity : AppCompatActivity() {
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
 
-        // Load first fragment only once
+        // Load ListFragment only once
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
                 .replace(R.id.fragment_host, ListFragment.newInstance())
@@ -41,8 +35,13 @@ class MainActivity : AppCompatActivity() {
 
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean = true
+
             override fun onQueryTextChange(newText: String?): Boolean {
-                viewModel.setSearch(newText ?: "")
+                // Forward search to ListFragment
+                val fragment = supportFragmentManager.findFragmentById(R.id.fragment_host)
+                if (fragment is ListFragment) {
+                    fragment.filterList(newText ?: "")
+                }
                 return true
             }
         })
