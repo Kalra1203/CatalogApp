@@ -6,7 +6,7 @@ import androidx.appcompat.widget.SearchView
 import androidx.appcompat.widget.Toolbar
 import androidx.activity.viewModels
 import androidx.lifecycle.SavedStateViewModelFactory
-import com.example.catalogapp.ui.ListFragment
+import com.example.catalogapp.model.ListFragment
 import com.example.catalogapp.viewmodel.CatalogViewModel
 
 class MainActivity : AppCompatActivity() {

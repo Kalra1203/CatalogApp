@@ -1,55 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:padding="16dp"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:fillViewport="true">
 
-    <ImageView
-        android:id="@+id/detailImage"
+    <LinearLayout
+        android:orientation="vertical"
+        android:padding="16dp"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:scaleType="centerCrop"
-        android:contentDescription="@string/app_name"/>
+        android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/detailTitle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:paddingTop="8dp"
-        android:text="Title"/>
+        <ImageView
+            android:id="@+id/detailImage"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            android:contentDescription="@string/app_name"/>
 
-    <TextView
-        android:id="@+id/detailDesc"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingTop="4dp"
-        android:text="Description"/>
+        <TextView
+            android:id="@+id/detailTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:paddingTop="8dp"
+            android:text="Title"/>
 
-    <ImageButton
-        android:id="@+id/detailFav"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:padding="8dp"
-        android:src="@drawable/ic_heart_outlined"
-        android:contentDescription="Favourite"
-        android:background="?attr/selectableItemBackgroundBorderless"/>
+        <TextView
+            android:id="@+id/detailDesc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="4dp"
+            android:text="Description"/>
 
-    <Button
-        android:id="@+id/openLink"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Open Link"
-        android:layout_marginTop="8dp"/>
+        <ImageButton
+            android:id="@+id/detailFav"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:padding="8dp"
+            android:src="@drawable/ic_heart_outlined"
+            android:contentDescription="Favourite"
+            android:background="?attr/selectableItemBackgroundBorderless"/>
 
-    <Button
-        android:id="@+id/closeButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Close"
-        android:layout_marginTop="8dp"/>
+        <Button
+            android:id="@+id/openLink"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Open Link"
+            android:layout_marginTop="8dp"/>
 
-</LinearLayout>
+        <Button
+            android:id="@+id/closeButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Close"
+            android:layout_marginTop="8dp"/>
+
+    </LinearLayout>
+</ScrollView>
